@@ -46,7 +46,7 @@ for (a in 1:folds)
     
     cat('\n', 'k = ', k, '\n', sep='')                               # print params
     this.err <- sum(test.labels != knn.fit) / length(test.labels)    # store gzn err
-    err.rates <- rbind(err.rates, this.err)     # append err to total results
+    err.rates <- rbind(err.rates, this.err)                          # append err to total results
     
   }
 }
@@ -56,10 +56,10 @@ for (a in 1:folds)
 ###########################
 avg.err <- colMeans(err.rates) # estimates OOS accuracy
 
-results <- data.frame(1:max.k, err.rates)   # create results summary data frame
-names(results) <- c('k', 'err.rate')        # label columns of results df                             # create title for results plot
+results <- data.frame(1:max.k, err.rates)      # create results summary data frame
+names(results) <- c('k', 'err.rate')           # label columns of results df                           
 
-title <- paste('n fold knn results', sep='')
+title <- paste('n fold knn results', sep='')   # create title for results plot
 
 # create results plot
 results.plot <- ggplot(results, aes(x=k, y=err.rate)) + geom_point() + geom_line()
