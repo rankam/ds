@@ -62,7 +62,7 @@ names(results) <- c('k', 'err.rate')           # label columns of results df
 title <- paste('n fold knn results', sep='')   # create title for results plot
 
 # create results plot
-results.plot <- ggplot(results, aes(x=k, y=err.rate)) + geom_point() + geom_line()
+results.plot <- ggplot(results, aes(x=k, y=err.rate)) + geom_point() + geom_line() # need to make multiple plots
 results.plot <- results.plot + ggtitle(title)
 
 # draw results plot (note need for print stmt inside script to draw ggplot)
